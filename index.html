@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesmen Awal - Fungsi Linear & Non Linear</title>
+    <!-- Library html2pdf untuk fitur unduh PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h3 {
+            text-align: left;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .identitas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .radio-group {
+            margin-bottom: 10px;
+        }
+        .radio-group label {
+            font-weight: normal;
+            display: inline-block;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-success {
+            background: #27ae60;
+        }
+        .btn-success:hover {
+            background: #2ecc71;
+        }
+        #resume-section {
+            display: none; /* Disembunyikan sampai disubmit */
+        }
+        .resume-content {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .resume-answer {
+            margin-bottom: 15px;
+        }
+        .resume-answer p.question {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .resume-answer p.answer {
+            margin-top: 0;
+            color: #555;
+            padding-left: 15px;
+            border-left: 3px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="form-section">
+        <h1>Asesmen Awal Pembelajaran</h1>
+        <h2 style="font-size: 1.2rem; color: #7f8c8d; margin-top: -10px;">Fungsi Linear dan Non-Linear | SMP YPS Singkole</h2>
+        
+        <form id="asesmenForm">
+            <div class="identitas">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap:</label>
+                    <input type="text" id="nama" required placeholder="Masukkan nama Anda">
+                </div>
+                <div class="form-group">
+                    <label for="kelas">Kelas:</label>
+                    <select id="kelas" required>
+                        <option value="">-- Pilih Kelas --</option>
+                        <option value="9A">9A</option>
+                        <option value="9B">9B</option>
+                        <option value="9C">9C</option>
+                        <option value="9D">9D</option>
+                        <option value="9E">9E</option>
+                        <option value="9F">9F</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3>Bagian A: Pengalaman dan Pemahaman Sehari-hari</h3>
+            
+            <div class="form-group">
+                <label>1. Pernahkah kamu melihat informasi atau data yang disajikan dalam bentuk grafik? Sebutkan satu contoh grafik yang pernah kamu lihat dan ceritakan informasi apa yang bisa kamu baca dari grafik tersebut!</label>
+                <textarea id="jawabanA1" rows="4" required placeholder="Tuliskan jawabanmu di sini..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>2. Bayangkan dua situasi: (A) Menabung Rp5.000 setiap hari. (B) Pertumbuhan tinggi tanaman dari benih. Jika digambar ke dalam grafik, manakah yang akan berupa garis lurus, dan manakah yang garis melengkung? Jelaskan alasanmu!</label>
+                <textarea id="jawabanA2" rows="4" required placeholder="Tuliskan alasanmu di sini..."></textarea>
+            </div>
+
+            <h3>Bagian B: Pemahaman Konsep Dasar</h3>
+
+            <div class="form-group">
+                <label>1. Sebuah grafik yang bentuk tarikan garisnya berupa garis lurus dan menunjukkan perubahan nilai yang selalu tetap atau konstan, merupakan ciri-ciri dari grafik...</label>
+                <div class="radio-group"><input type="radio" name="soalB1" value="Fungsi Non-Linear" required> a. Fungsi Non-Linear</div>
+                <div class="radio-group"><input type="radio" name="soalB1" value="Fungsi Linear"> b. Fungsi Linear</div>
+                <div class="radio-group"><input type="radio" name="soalB1" value="Fungsi Kuadrat"> c. Fungsi Kuadrat</div>
+                <div class="radio-group"><input type="radio" name="soalB1" value="Fungsi Bebas"> d. Fungsi Bebas</div>
+            </div>
+
+            <div class="form-group">
+                <label>2. Manakah contoh kejadian di kehidupan sehari-hari yang jika dibuatkan grafik kemungkinan besar akan menghasilkan bentuk grafik melengkung (non-linear)?</label>
+                <div class="radio-group"><input type="radio" name="soalB2" value="Pengeluaran uang jajan harian yang selalu sama" required> a. Pengeluaran uang jajan harian yang selalu sama setiap harinya.</div>
+                <div class="radio-group"><input type="radio" name="soalB2" value="Jarak tempuh mobil kecepatan konstan"> b. Jarak tempuh sebuah mobil yang melaju dengan kecepatan konstan (tetap).</div>
+                <div class="radio-group"><input type="radio" name="soalB2" value="Pertumbuhan populasi bakteri"> c. Pertumbuhan populasi bakteri yang jumlahnya berlipat ganda setiap jam.</div>
+                <div class="radio-group"><input type="radio" name="soalB2" value="Tarif parkir per jam"> d. Tarif parkir yang dihitung secara proporsional per jam.</div>
+            </div>
+
+            <div class="form-group">
+                <label>3. Sebuah fungsi memiliki bentuk persamaan umum y = ax + b. Berdasarkan persamaan tersebut, grafik yang akan terbentuk di diagram kartesius adalah...</label>
+                <div class="radio-group"><input type="radio" name="soalB3" value="Garis yang melengkung tajam" required> a. Garis yang melengkung tajam</div>
+                <div class="radio-group"><input type="radio" name="soalB3" value="Garis berbentuk lingkaran"> b. Garis berbentuk lingkaran</div>
+                <div class="radio-group"><input type="radio" name="soalB3" value="Garis lurus"> c. Garis lurus</div>
+                <div class="radio-group"><input type="radio" name="soalB3" value="Garis zigzag"> d. Garis zigzag</div>
+            </div>
+
+            <button type="submit" class="btn">Kumpulkan & Lihat Resume</button>
+        </form>
+    </div>
+
+    <!-- Bagian Resume (Akan muncul setelah form disubmit) -->
+    <div id="resume-section">
+        <div id="pdf-content" class="resume-content">
+            <h1 style="margin-bottom: 0;">Resume Asesmen Awal</h1>
+            <h3 style="border: none; text-align: center; margin-top: 5px; font-size: 16px;">Materi: Fungsi Linear dan Non-Linear | SMP YPS Singkole</h3>
+            <hr>
+            <p><strong>Nama:</strong> <span id="res-nama"></span></p>
+            <p><strong>Kelas:</strong> <span id="res-kelas"></span></p>
+            <hr>
+
+            <h3>Bagian A: Isian Singkat</h3>
+            <div class="resume-answer">
+                <p class="question">1. Pengalaman melihat grafik dan informasinya:</p>
+                <p class="answer" id="res-A1"></p>
+            </div>
+            <div class="resume-answer">
+                <p class="question">2. Analisa situasi A (Menabung) & situasi B (Pertumbuhan tanaman):</p>
+                <p class="answer" id="res-A2"></p>
+            </div>
+
+            <h3>Bagian B: Pilihan Ganda</h3>
+            <div class="resume-answer">
+                <p class="question">1. Ciri-ciri grafik garis lurus dan nilai konstan:</p>
+                <p class="answer" id="res-B1"></p>
+            </div>
+            <div class="resume-answer">
+                <p class="question">2. Contoh kejadian dengan grafik melengkung (non-linear):</p>
+                <p class="answer" id="res-B2"></p>
+            </div>
+            <div class="resume-answer">
+                <p class="question">3. Bentuk grafik dari persamaan y = ax + b:</p>
+                <p class="answer" id="res-B3"></p>
+            </div>
+            <br>
+            <p style="font-size: 12px; text-align: center; color: gray;"><i>Dokumen ini di-generate secara otomatis dari web app asesmen.</i></p>
+        </div>
+        
+        <button onclick="unduhPDF()" class="btn btn-success">Unduh Hasil sebagai PDF</button>
+        <button onclick="kembali()" class="btn" style="background: #95a5a6; margin-top: 10px;">Kembali Edit Jawaban</button>
+    </div>
+</div>
+
+<script>
+    // Menangani form saat disubmit
+    document.getElementById('asesmenForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah reload halaman
+
+        // Mengambil data dari form
+        const nama = document.getElementById('nama').value;
+        const kelas = document.getElementById('kelas').value;
+        const jawabanA1 = document.getElementById('jawabanA1').value;
+        const jawabanA2 = document.getElementById('jawabanA2').value;
+        
+        // Mengambil jawaban radio button
+        const soalB1 = document.querySelector('input[name="soalB1"]:checked').value;
+        const soalB2 = document.querySelector('input[name="soalB2"]:checked').value;
+        const soalB3 = document.querySelector('input[name="soalB3"]:checked').value;
+
+        // Memasukkan data ke bagian resume
+        document.getElementById('res-nama').innerText = nama;
+        document.getElementById('res-kelas').innerText = kelas;
+        document.getElementById('res-A1').innerText = jawabanA1;
+        document.getElementById('res-A2').innerText = jawabanA2;
+        document.getElementById('res-B1').innerText = soalB1;
+        document.getElementById('res-B2').innerText = soalB2;
+        document.getElementById('res-B3').innerText = soalB3;
+
+        // Menyembunyikan form dan menampilkan resume
+        document.getElementById('form-section').style.display = 'none';
+        document.getElementById('resume-section').style.display = 'block';
+        window.scrollTo(0, 0); // Scroll ke atas
+    });
+
+    // Fungsi untuk kembali mengedit jawaban
+    function kembali() {
+        document.getElementById('form-section').style.display = 'block';
+        document.getElementById('resume-section').style.display = 'none';
+        window.scrollTo(0, 0);
+    }
+
+    // Fungsi untuk mengunduh div menjadi PDF menggunakan html2pdf
+    function unduhPDF() {
+        const element = document.getElementById('pdf-content');
+        const namaSiswa = document.getElementById('nama').value.replace(/ /g, "_");
+        const kelasSiswa = document.getElementById('kelas').value;
+        
+        const opt = {
+            margin:       0.5,
+            filename:     `Asesmen_Awal_${kelasSiswa}_${namaSiswa}.pdf`,
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+
+        // Generate PDF
+        html2pdf().set(opt).from(element).save();
+    }
+</script>
+
+</body>
+</html>
